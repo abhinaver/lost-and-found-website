@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ItemDetails from "./pages/ItemDetails";
 import MyListings from "./pages/myitems"; 
+import EditItem from "./pages/edititem";
 import "./App.css";
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/item/:id" element={<ItemDetails items={items} />} />
           <Route path="/my-items" element={<MyListings items={items} user={user} setItems={setItems} />} />
+          <Route path="/edit-item/:id" element={<EditItem />} />
         </Routes>
       </main>
       <Footer />

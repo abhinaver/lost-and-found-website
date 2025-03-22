@@ -1,49 +1,102 @@
+/* General Styling */
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Main Container */
 .edit-item-container {
-    max-width: 400px;
-    margin: 80px auto;
-    padding: 20px;
-    background: white;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
-    text-align: center;
-  }
-  
-  .edit-item-container h2 {
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  input,
-  textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  textarea {
-    resize: none;
-    height: 100px;
-  }
-  
-  button {
-    padding: 10px;
-    background: #008000;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  button:hover {
-    background: #006600;
-  }
-  
+  width: 40%;
+  margin: 50px auto;
+  padding: 20px;
+  background: #1e1e1e;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+/* Form Heading */
+h2 {
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.image-preview {
+  width: 80%;  
+  margin: 15px auto;
+  padding: 8px;
+  background: #2a2a2a;
+  border-radius: 8px;
+  border: 2px solid #444;
+  text-align: center;
+}
+
+/* Image Styling */
+.image-preview img {
+  max-width: 100%;
+  height: 150px;  /* Reduced Height */
+  object-fit: cover;  /* Keeps aspect ratio */
+  border-radius: 6px;
+}
+
+
+/* Input Fields */
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  transition: border 0.3s ease-in-out;
+}
+
+input:focus, textarea:focus {
+  border-color: #ff9800;
+}
+
+/* Placeholder Styling */
+input::placeholder, textarea::placeholder {
+  color: #888888;
+  font-size: 14px;
+}
+
+/* File Upload Styling */
+input[type="file"] {
+  border: none;
+  background: none;
+  padding: 8px;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+/* Button Styling */
+button {
+  width: 100%;
+  padding: 14px;
+  background: #ff9800;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+button:hover {
+  background: #ffb74d;
+}
+
+/* Label Styling */
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+  text-align: left;
+}

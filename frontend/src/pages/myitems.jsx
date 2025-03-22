@@ -57,7 +57,7 @@ const MyListings = () => {
                                     alt={item.name || "Item"} 
                                     className="item-image" 
                                     onError={(e) => {
-                                        e.target.src = "/placeholder-image.jpg"; // Fallback image
+                                        e.target.src = "/placeholder-image.jpg"; 
                                         console.log("Image failed to load:", item.image_url);
                                     }}
                                 />

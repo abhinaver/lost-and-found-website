@@ -36,6 +36,10 @@ app.use("/my-item", myproductRouter);
 import eproductRouter from "./models/edit.js";
 app.use("/update-item", eproductRouter);
 
+
+import imgRouter from "./models/imageupload.js";
+app.use("/upload-image", imgRouter);
+
 app.listen(8081, () => {
     console.log(" Server running on port 8081");
 });
