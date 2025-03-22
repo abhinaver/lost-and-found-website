@@ -13,12 +13,19 @@ const ItemDetails = ({ items }) => {
   return (
     <div className="item-details-container">
       <div className="item-details">
-        <img src={item.image} alt={item.title} className="item-details-image" />
+        <img src={item.image} alt={item.name} className="item-details-image" />
         <div className="item-details-info">
-          <h2 className="item-details-title">{item.title}</h2>
+          <h2 className="item-details-title">{item.name}</h2>
           <p className="item-details-description">{item.description}</p>
-          <p className="item-details-location"><strong>Location:</strong> {item.location}</p>
-          <p className="item-details-date"><strong>Found Date:</strong> {item.date}</p>
+          <p className="item-details-location">
+            <strong>Location:</strong> {item.location}
+          </p>
+          <p className="item-details-date">
+            <strong>Found Date:</strong> {item.date}
+          </p>
+          <p className="item-details-phone">
+            <strong>Contact:</strong> {item.phone}
+          </p>
         </div>
       </div>
     </div>

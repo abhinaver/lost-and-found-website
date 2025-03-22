@@ -5,14 +5,14 @@
   height: 100vh;
   background: #1e1e1e;
   color: white;
-  padding: 20px; /* Added padding to prevent overflow */
+  padding: 20px;
   margin-top: 100px;
   margin-bottom: 100px;
 }
 
 .list-item-box {
   width: 100%;
-  max-width: 450px; /* Increased max-width for better alignment */
+  max-width: 450px;
   padding: 30px;
   background: #1e1e1e;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
@@ -46,9 +46,10 @@ h2 {
   color: #ddd;
 }
 
-/* Input Fields */
+/* Input Fields and Select */
 .input-group input,
-.input-group textarea {
+.input-group textarea,
+.input-group select {
   width: 94%;
   padding: 12px;
   border: 2px solid #444;
@@ -58,10 +59,18 @@ h2 {
   font-size: 16px;
   outline: none;
   transition: 0.3s;
+  appearance: none; /* Removes default browser styles */
+}
+
+.input-group select {
+  cursor: pointer;
+  width: 100%;
+  border-radius: 20px;
 }
 
 .input-group input:focus,
-.input-group textarea:focus {
+.input-group textarea:focus,
+.input-group select:focus {
   border-color: #ffcc00;
   box-shadow: 0px 0px 5px rgba(255, 204, 0, 0.5);
 }
@@ -87,5 +96,14 @@ button {
 button:hover {
   background: white;
   color: #242424;
+  box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.5);
+}
+
+.image-preview {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  margin-top: 10px;
+  border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.5);
 }
