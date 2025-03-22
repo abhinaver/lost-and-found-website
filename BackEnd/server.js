@@ -26,6 +26,15 @@ app.use("/add-product", addproductRouter);
 import sproductRouter from "./models/sproduct.js";
 app.use("/product", sproductRouter);
 
+import dproductRouter from "./models/delete.js";
+app.use("/delete-item", dproductRouter);
+
+import myproductRouter from "./models/myproduct.js";
+app.use("/my-item", myproductRouter);
+
+
+import eproductRouter from "./models/edit.js";
+app.use("/update-item", eproductRouter);
 
 app.listen(8081, () => {
     console.log(" Server running on port 8081");

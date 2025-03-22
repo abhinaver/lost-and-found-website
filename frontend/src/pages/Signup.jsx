@@ -20,7 +20,7 @@ const Signup = () => {
       return;
     }
     
-    axios.post('http://localhost:8081/signin', { // Changed endpoint from 'signin' to 'signup'
+    axios.post('http://localhost:8081/signin', { 
       name: name,
       email: email,
       password: password

@@ -1,19 +1,33 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import axios from 'axios';
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Logged in:", email, password);
-    navigate("/");
-  };
-  
-  
+  function handleSubmit(event) {
+    event.preventDefault();
+    
+    axios.post('http://localhost:8081/login', { email, password })
+      .then(response => {
+        console.log(response.data);
+        if (response.data.message) {
+          alert("Login Successful");
+          localStorage.setItem("username", response.data.user.username);
+          window.location.href = "/";
+        } else {
+          alert("Invalid Credentials");
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        alert("Login Failed. Try Again.");
+      });
+  }
+
   return (
     <div className="login-container">
       <div className="login-box">

@@ -3,7 +3,7 @@ import { productDB } from "./database.js";
 
 const router = express.Router();
 
-// Get all items listed by the logged-in user
+
 router.get("/:userId", (req, res) => {
     const { userId } = req.params;
 
