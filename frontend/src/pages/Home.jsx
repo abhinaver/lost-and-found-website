@@ -2,32 +2,23 @@ import React, { useEffect, useState } from "react";
 import ItemCard from "../components/ItemCard";
 import "./Home.css";
 
-const Home = ({ searchQuery }) => {
-  const [items, setItems] = useState([]);
+const Home = ({ items, searchQuery }) => {
+  const [filteredItems, setFilteredItems] = useState(items);
 
   useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        const response = await fetch("http://localhost:8081/products");
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        const data = await response.json();
-        console.log("Fetched Data:", data); // ✅ Debugging
-        setItems(data); // ✅ Directly set the array
-      } catch (error) {
-        console.error("Error fetching items:", error);
-        setItems([]);
-      }
-    };
+    // Normalize search query
+    const lowerCaseQuery = searchQuery.toLowerCase().trim();
 
-    fetchItems();
-  }, []);
+    const filteredResults = items.filter((item) => {
+      return (
+        item.name.toLowerCase().includes(lowerCaseQuery) ||
+        item.location.toLowerCase().includes(lowerCaseQuery) ||
+        item.date.includes(lowerCaseQuery) // Ensures date filtering works
+      );
+    });
 
-  // Ensure `searchQuery` is always a string
-  const filteredItems = items.filter((item) =>
-    item.name.toLowerCase().includes(searchQuery?.toLowerCase() || "")
-  );
+    setFilteredItems(filteredResults);
+  }, [searchQuery, items]); // ✅ Re-runs when searchQuery or items change
 
   const foundItems = filteredItems.filter((item) => item.type === "Found");
   const lostItems = filteredItems.filter((item) => item.type === "Lost");

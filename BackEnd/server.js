@@ -8,6 +8,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+import myItemsRouter from "./models/myitems.js";
+app.use("/my-items", myItemsRouter);
 
 import signinRouter from "./models/signin.js";
 app.use("/signin", signinRouter);

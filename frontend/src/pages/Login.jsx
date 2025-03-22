@@ -12,7 +12,8 @@ const Login = () => {
     console.log("Logged in:", email, password);
     navigate("/");
   };
-
+  
+  
   return (
     <div className="login-container">
       <div className="login-box">

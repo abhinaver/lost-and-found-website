@@ -6,8 +6,8 @@
   background: #1e1e1e;
   color: white;
   padding: 20px;
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 200px;
+  margin-bottom: 200px;
 }
 
 .list-item-box {
@@ -100,8 +100,8 @@ button:hover {
 }
 
 .image-preview {
-  width: 100%;
-  max-height: 200px;
+  width: 80%; /* Reduce width to 80% of the container */
+  max-height: 150px; /* Reduce max height from 200px to 150px */
   object-fit: cover;
   margin-top: 10px;
   border-radius: 8px;
