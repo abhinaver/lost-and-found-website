@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'; // Missing import
 import "./Signup.css";
 
 const Signup = () => {
@@ -7,22 +8,45 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
-
+    
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError("");
+    
     if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+      setError("Passwords do not match");
       return;
     }
-    console.log("Signed up:", { name, email });
-    navigate("/login");
+    
+    axios.post('http://localhost:8081/signin', { // Changed endpoint from 'signin' to 'signup'
+      name: name,
+      email: email,
+      password: password
+    })
+    .then(response => {
+      console.log("Signup Response:", response.data);
+      
+      if (response.data.message) {
+        alert("Signup Successful");
+        localStorage.setItem("username", name);
+        window.location.href = "/";
+      } else if (response.data.error) {
+        setError(response.data.error);
+      }
+    })
+    .catch(error => {
+      console.error('Error during signup:', error);
+      setError("Something went wrong. Please try again.");
+    });
   };
 
   return (
     <div className="signup-container">
       <div className="signup-box">
         <h2>Sign Up</h2>
+        {error && <div className="error-message">{error}</div>} {/* Display error message */}
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <label>Name</label>
