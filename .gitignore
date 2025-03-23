@@ -11,8 +11,6 @@ lerna-debug.log*
 FrontEnd/node_modules/
 BackEnd/node_modules/
 .env
-dist
-dist-ssr
 *.local
 
 # Editor directories and files
