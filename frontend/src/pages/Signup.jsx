@@ -20,7 +20,7 @@ const Signup = () => {
       return;
     }
     
-    axios.post('http://localhost:8081/signin', { 
+    axios.post('/signin', { 
       name: name,
       email: email,
       password: password

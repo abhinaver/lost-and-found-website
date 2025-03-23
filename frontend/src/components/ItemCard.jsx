@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./ItemCard.css";
 
 const ItemCard = ({ item }) => {
-  console.log("Item Data:", item); // ✅ Debugging: Check if item data is correct
+  console.log("Item Data:", item);
 
   return (
     <div className="item-card">

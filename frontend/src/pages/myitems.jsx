@@ -13,7 +13,7 @@ const MyListings = () => {
             try {
                 setLoading(true);
                 // Use username parameter instead of user_id
-                const response = await fetch(`http://localhost:8081/my-item/${username}`);
+                const response = await fetch(`/my-item/${username}`);
                 const data = await response.json();
                 console.log("Data received from API:", data); // Debug log
                 setItems(data);
@@ -35,7 +35,7 @@ const MyListings = () => {
 
     const handleDelete = async (id) => {
         try {
-            await fetch(`http://localhost:8081/delete-item/${id}`, { method: "DELETE" });
+            await fetch(`/delete-item/${id}`, { method: "DELETE" });
             setItems(items.filter(item => item.id !== id)); // Remove item from UI
         } catch (error) {
             console.error("Error deleting item:", error);

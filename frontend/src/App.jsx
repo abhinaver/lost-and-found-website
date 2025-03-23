@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await fetch("http://localhost:8081/products");
+        const response = await fetch("/products");
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }

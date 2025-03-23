@@ -18,7 +18,7 @@ const EditItem = () => {
     useEffect(() => {
         const fetchItem = async () => {
             try {
-                const response = await fetch(`http://localhost:8081/product/${id}`);
+                const response = await fetch(`/product/${id}`);
                 const data = await response.json();
                 setItem(data);
                 setPreviewImage(data.image_url); 
@@ -49,7 +49,7 @@ const EditItem = () => {
             formData.append("image", imageFile);
 
             try {
-                const uploadResponse = await fetch("http://localhost:8081/upload-image", {
+                const uploadResponse = await fetch("/upload-image", {
                     method: "POST",
                     body: formData,
                 });
@@ -63,7 +63,7 @@ const EditItem = () => {
 
         // Update item with new data
         try {
-            await fetch(`http://localhost:8081/update-item/${id}`, {
+            await fetch(`/update-item/${id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ ...item, image_url: imageUrl }),

@@ -10,7 +10,7 @@ const ItemDetails = () => {
   useEffect(() => {
     const fetchItemDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:8081/product/${id}`);
+        const response = await fetch(`/product/${id}`);
         const data = await response.json();
         setItem(data);
       } catch (error) {

@@ -55,7 +55,7 @@ const ListItem = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:8081/add-product', submitData, {
+      const response = await axios.post('/add-product', submitData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
